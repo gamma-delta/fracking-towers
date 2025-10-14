@@ -12,3 +12,15 @@ for _,drill in pairs(data.raw["mining-drill"]) do
   end
   -- If there's no allowed modules, don't add fracking
 end
+
+for level=1,4 do
+  local tech = data.raw["technology"]["mining-productivity-" .. level]
+  if tech then
+    tech.hidden = true
+    tech.enabled = false
+  end
+end
+
+if mods["space-age"] then
+  require "compat/space-age.lua"
+end

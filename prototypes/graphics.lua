@@ -55,6 +55,7 @@ local sequence = sequence_splicer({
 local shift = {1, -0.5}
 
 return {
+  random_animation_offset = true,
   animation_list = {
     {
       render_layer = "floor-mechanics",
@@ -63,7 +64,6 @@ return {
         frame_count = 60,
         draw_as_shadow = true,
         scale = 0.5,
-        -- Everything renders too far to the left and i don't know why.
         shift = shift,
       }),
     },
@@ -72,17 +72,17 @@ return {
       always_draw = true,
       animation = {
         layers = {
-          util.sprite_load(pfx .. "fan", {
-            frame_count = 10,
-            animation_speed = 0.5,
-            repeat_count = 240 / 10,
-            scale = 0.5,
-            shift = shift,
-          }),
           util.sprite_load(pfx .. "fracking-tower", {
             frame_count = 60,
             animation_speed = 0.5,
             frame_sequence = sequence,
+            scale = 0.5,
+            shift = shift,
+          }),
+          util.sprite_load(pfx .. "fan", {
+            frame_count = 10,
+            animation_speed = 0.5,
+            repeat_count = 240 / 10,
             scale = 0.5,
             shift = shift,
           }),
