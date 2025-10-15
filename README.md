@@ -1,5 +1,7 @@
 # Fracking Towers
 
+[Mod Portal Link](https://mods.factorio.com/mod/pk-fracking-tower)
+
 !["A large green and brown machine stands in the middle of a field of miners. It is a braced frame surrounding a giant piston that shoves into the earth, driven by a large worm gear and other gear assemblies."](thumbnail.png)
 
 Replaces mining productivity researches with fracking modules,
