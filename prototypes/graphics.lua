@@ -54,40 +54,51 @@ local sequence = sequence_splicer({
 local shift = {1, -0.5}
 
 return {
-  random_animation_offset = true,
-  animation_list = {
-    {
-      render_layer = "floor-mechanics",
-      always_draw = true,
-      animation = util.sprite_load(pfx .. "shadow", {
-        frame_count = 60,
-        draw_as_shadow = true,
+  base = {
+    layers = {
+      util.sprite_load(pfx .. "shadow", {
+        frame_count = 1,
         scale = 0.5,
-        -- Everything renders in the wrong place for smoe reason
+        shift = {1, -0.5},
+        draw_as_shadow = true,
+      }),
+      util.sprite_load(pfx .. "fracking-tower", {
+        frame_count = 1,
+        scale = 0.5,
+        shift = {0, -0.5},
+      }),
+      util.sprite_load(pfx .. "fan", {
+        frame_count = 1,
+        scale = 0.5,
         shift = {1, -0.5},
       }),
-    },
-    {
-      render_layer = "object",
-      always_draw = true,
-      animation = {
-        layers = {
-          util.sprite_load(pfx .. "fracking-tower", {
-            frame_count = 60,
-            animation_speed = 0.5,
-            frame_sequence = sequence,
-            scale = 0.5,
-            shift = {0, -0.5},
-          }),
-          util.sprite_load(pfx .. "fan", {
-            frame_count = 10,
-            animation_speed = 1,
-            repeat_count = 240 / 10,
-            scale = 0.5,
-            shift = {1, -0.5},
-          }),
-        }
-      }
+    }
+  },
+  animation = {
+    layers = {
+      util.sprite_load(pfx .. "shadow", {
+        scale = 0.5,
+        frame_count = 60,
+        frame_sequence = sequence,
+        animation_speed = 0.5,
+        -- Everything renders in the wrong place for smoe reason
+        shift = {1, -0.5},
+        draw_as_shadow = true,
+      }),
+      util.sprite_load(pfx .. "fracking-tower", {
+        frame_count = 60,
+        animation_speed = 0.5,
+        frame_sequence = sequence,
+        scale = 0.5,
+        shift = {0, -0.5},
+      }),
+      util.sprite_load(pfx .. "fan", {
+        frame_count = 10,
+        animation_speed = 1,
+        repeat_count = 240 / 10,
+        scale = 0.5,
+        shift = {1, -0.5},
+      }),
     }
   }
 }

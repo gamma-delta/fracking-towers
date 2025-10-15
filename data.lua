@@ -7,6 +7,8 @@ local hit_effects = require("__base__/prototypes/entity/hit-effects")
 
 local smoke_pos = {-0.75, -2.2}
 
+local lube_per_second = 20
+
 local beacon = data.raw["beacon"]["beacon"]
 data:extend{
   {
@@ -22,6 +24,10 @@ data:extend{
     fast_replaceable_group = "pk-fracking-tower",
     minable = {mining_time=0.5, result="pk-fracking-tower"},
     max_health = 150,
+    localised_description = {
+      "entity-description.pk-fracking-tower",
+      tostring(lube_per_second)
+    },
     -- no one cares
     corpse = "beacon-remnants",
     dying_explosion = "beacon-explosion",
@@ -31,7 +37,8 @@ data:extend{
     drawing_box_vertical_extension = 0.7,
     impact_category = "metal",
 
-    graphics_set = require("prototypes/graphics.lua"),
+    base_picture = fracking_gfx.base,
+    animation = fracking_gfx.animation,
     radius_visualisation_picture = beacon.radius_visualisation_picture,
     icons_positioning = {{
       inventory_index = defines.inventory.beacon_modules,
@@ -57,8 +64,7 @@ data:extend{
       type = "fluid",
       burns_fluid = true,
       scale_fluid_usage = false,
-      -- https://github.com/protocol-1903/zzz-nonstandard-beacons/issues/2
-      render_no_power_icon = false,
+      fluid_usage_per_tick = lube_per_second / 60,
       -- big mining drill is 40.
       -- these are gonna SUCK to use.
       emissions_per_minute = {pollution=100},
@@ -87,10 +93,8 @@ data:extend{
         }
       }
     },
-    -- energy_source = { type = "void" },
-    -- this makes the math easy.
-    -- every multiple of 1kw is one lubricant per second.
-    energy_usage = "20kW",
+    -- Use "Very Little" energy so that the fluid_usage_per_tick is source of truth
+    energy_usage = "1kW",
 
     module_slots = 4,
     distribution_effectivity = 1,

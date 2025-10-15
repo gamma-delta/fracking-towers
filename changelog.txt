@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 15. 10. 2025
+  Minor Features:
+    - Fracking tower now has a tooltip saying how much lubricant per second it uses.
+  Graphics:
+    - Fracking tower should no longer move when it is unpowered.
+    - Fracking tower properly displays the no-fuel icon when it is out of fuel.
+
+---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 14. 10. 2025
   Graphics:
