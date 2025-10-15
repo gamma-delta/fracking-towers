@@ -5,6 +5,8 @@ require "prototypes/technologies.lua"
 local fracking_gfx = require "prototypes/graphics.lua"
 local hit_effects = require("__base__/prototypes/entity/hit-effects")
 
+local smoke_pos = {-0.75, -2.2}
+
 local beacon = data.raw["beacon"]["beacon"]
 data:extend{
   {
@@ -78,6 +80,10 @@ data:extend{
           frequency = 20,
           position = {0, -2},
           starting_vertical_speed = 0.05,
+          north_position = smoke_pos,
+          east_position = smoke_pos,
+          south_position = smoke_pos,
+          west_position = smoke_pos,
         }
       }
     },

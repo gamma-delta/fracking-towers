@@ -12,7 +12,7 @@ tech2.unit = {
 tech2.prerequisites = {"pk-fracking-module-1", "space-science-pack"}
 
 local tech3 = data.raw["technology"]["pk-fracking-module-3"]
-tech2.unit = {
+tech3.unit = {
   time = 60,
   ingredients = {
     {"automation-science-pack", 1},
@@ -46,4 +46,4 @@ data.raw["recipe"]["pk-fracking-tower"].category = "crafting-with-fluid-or-metal
 
 local recipe3 = data.raw["recipe"]["pk-fracking-module-3"]
 recipe3.category = "metallurgy"
-table.insert(recipe3.ingredients, {type="item", name="tungsten-plate", amount=1}}
+table.insert(recipe3.ingredients, {type="item", name="tungsten-plate", amount=1})

@@ -11,6 +11,7 @@ data:extend{
       {type="item", name="burner-mining-drill", amount=5},
     },
     energy_required = 15,
+    results = {{type="item", name="pk-fracking-module-1", amount=1}},
   },
   {
     type = "recipe",
@@ -25,6 +26,7 @@ data:extend{
       {type="fluid", name="lubricant", amount=100},
     },
     energy_required = 15,
+    results = {{type="item", name="pk-fracking-tower", amount=1}},
   },
   {
     type = "recipe",
@@ -39,6 +41,7 @@ data:extend{
       {type="fluid", name="lubricant", amount=20},
     },
     energy_required = 30,
+    results = {{type="item", name="pk-fracking-module-2", amount=1}},
   },
   {
     type = "recipe",
@@ -53,5 +56,6 @@ data:extend{
       {type="fluid", name="lubricant", amount=100},
     },
     energy_required = 60,
+    results = {{type="item", name="pk-fracking-module-3", amount=1}},
   },
 }

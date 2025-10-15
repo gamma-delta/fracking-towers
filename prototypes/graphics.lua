@@ -51,7 +51,6 @@ local sequence = sequence_splicer({
   -- round up to 240
   x(1, 4 + 10),
 })
--- Everything renders in the wrong place for smoe reason
 local shift = {1, -0.5}
 
 return {
@@ -64,7 +63,8 @@ return {
         frame_count = 60,
         draw_as_shadow = true,
         scale = 0.5,
-        shift = shift,
+        -- Everything renders in the wrong place for smoe reason
+        shift = {1, -0.5},
       }),
     },
     {
@@ -77,14 +77,14 @@ return {
             animation_speed = 0.5,
             frame_sequence = sequence,
             scale = 0.5,
-            shift = shift,
+            shift = {0, -0.5},
           }),
           util.sprite_load(pfx .. "fan", {
             frame_count = 10,
-            animation_speed = 0.5,
+            animation_speed = 1,
             repeat_count = 240 / 10,
             scale = 0.5,
-            shift = shift,
+            shift = {1, -0.5},
           }),
         }
       }
