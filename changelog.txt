@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 07. 11. 2025
+  Bugfixes:
+    - Fracking modules can no longer be placed in every single machine and are now properly restricted to mining drills and fracking towers. (Thanks starblaster64)
+
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 15. 10. 2025
   Minor Features:

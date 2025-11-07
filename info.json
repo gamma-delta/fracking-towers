@@ -1,6 +1,6 @@
 {
   "name": "pk-fracking-tower",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "title": "Fracking Tower",
   "description": "Replaces infinite mining productivity research with fracking modules, which can be placed in miners or broadcast with special fracking towers.",
   "author": "petrak@",
