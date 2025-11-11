@@ -1,11 +1,3 @@
--- In order for a fluid power source to work,
--- lubricant needs to either be above ambient temp,
--- or have a fuel value.
--- this is miserable and awful.
--- i'm picking fuel value, so that you don't have mixed lubricant
--- temperatures if you add and remove this mod.
-data.raw["fluid"]["lubricant"].fuel_value = "1kJ"
-
 -- AUGHH URGH ARUGH
 local all_module_categories = {}
 local amc_but_fracking = {}

@@ -7,8 +7,6 @@ local hit_effects = require("__base__/prototypes/entity/hit-effects")
 
 local smoke_pos = {-0.75, -2.2}
 
-local lube_per_second = 20
-
 local beacon = data.raw["beacon"]["beacon"]
 data:extend{
   {
@@ -24,10 +22,6 @@ data:extend{
     fast_replaceable_group = "pk-fracking-tower",
     minable = {mining_time=0.5, result="pk-fracking-tower"},
     max_health = 150,
-    localised_description = {
-      "entity-description.pk-fracking-tower",
-      tostring(lube_per_second)
-    },
     -- no one cares
     corpse = "beacon-remnants",
     dying_explosion = "beacon-explosion",
@@ -62,9 +56,9 @@ data:extend{
     -- thanks nonstandard beacons
     energy_source = {
       type = "fluid",
-      burns_fluid = true,
-      scale_fluid_usage = false,
-      fluid_usage_per_tick = lube_per_second / 60,
+      burns_fluid = false,
+      scale_fluid_usage = true,
+      maximum_temperature = 500,
       -- big mining drill is 40.
       -- these are gonna SUCK to use.
       emissions_per_minute = {pollution=100},
@@ -73,7 +67,8 @@ data:extend{
         production_type = "input",
         pipe_covers = pipecoverspictures(),
 
-        filter = "lubricant",
+        filter = "steam",
+        minimum_temperature = 100,
         pipe_connections = {{
           flow_direction = "input",
           position = {0, 1},
@@ -93,8 +88,15 @@ data:extend{
         }
       }
     },
-    -- Use "Very Little" energy so that the fluid_usage_per_tick is source of truth
-    energy_usage = "1kW",
+    -- 1 boiler outputs 1.8MW
+    -- 1 heating tower outputs 40*2.5=100MW
+    -- 1 nuclear reactor outputs 40MW, w/o neighbors
+    -- 1 acid neutralizationizer outputs 194 MW (WHY IS IT SO MUCH)
+    -- Cool steam requires ~33 water to the MW;
+    -- hot steam requires ~10.
+    -- (and an offshore pump makes 1200 water/second, so that's unlikely
+    -- to be your bottleneck.)
+    energy_usage = "10MW",
 
     module_slots = 8,
     distribution_effectivity = 2,

@@ -19,7 +19,7 @@ data:extend{
     name = "pk-fracking-tower",
     icon = "__pk-fracking-tower__/graphics/tech-tower.png",
     icon_size = 256,
-    prerequisites = {"pk-fracking-module-1", "lubricant"},
+    prerequisites = {"pk-fracking-module-1"},
     unit = {
       time = 60,
       ingredients = {
