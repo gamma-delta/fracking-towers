@@ -15,15 +15,31 @@ for name,_ in pairs(data.raw["module-category"]) do
     table.insert(amc_but_fracking, name)
   end
 end
-print(serpent.line(amc_but_fracking))
+local override_allow = {}
+local override_deny = {}
+for it in settings.startup["pk-fracking-module-allowlist"]
+  .value:gmatch("[^,]+")
+do
+  override_allow[it] = true
+end
+for it in settings.startup["pk-fracking-module-denylist"]
+  .value:gmatch("[^,]+") 
+do
+  override_deny[it] = true
+end
+log(serpent.line(override_deny))
 
 for _,drill in pairs(data.raw["mining-drill"]) do
-  if drill.effect_reciever then
+  if not override_deny[drill.name] then
     if drill.allowed_module_categories then
-      -- TODO: a blacklist for developers?
+      -- non-destructively add
       table.insert(drill.allowed_module_categories, "pk-fracking-modules")
-    else
-      drill.allowed_module_categories = all_module_categories
+    end
+    -- Otherwise, it is `nil`, which by default allows all module categories
+  else
+    -- don't mess with it if it has a custom list
+    if not drill.allowed_module_categories then
+      drill.allowed_module_categories = amc_but_fracking
     end
   end
 end
@@ -33,8 +49,9 @@ for _,proto_type in ipairs{
   -- Mining drills handled above
 } do
   for _,proto in pairs(data.raw[proto_type]) do
-    -- Dont modify if it has a custom AMC
-    if not proto.allowed_module_categories then
+    -- Don't mess with the module categories of entities that have custom ones
+    local remove_fracking = not proto.allowed_module_categories or override_deny[proto.name]
+    if not override_allow[proto.name] and remove_fracking then
       proto.allowed_module_categories = amc_but_fracking
     end
   end
