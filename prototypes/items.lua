@@ -35,13 +35,12 @@ local function declare_module(tier, prod)
 
     effect = {
       productivity = prod,
-      pollution = 5 * prod,
-      consumption = 2 * prod,
+      pollution = 2.5 * prod,
     },
     tier = tier,
     category = "pk-fracking-modules",
   }}
 end
-declare_module(1, 0.1)
-declare_module(2, 0.2)
-declare_module(3, 0.25)
+declare_module(1, 0.2)
+declare_module(2, 0.3)
+declare_module(3, 0.5)
