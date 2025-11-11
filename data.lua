@@ -96,14 +96,13 @@ data:extend{
     -- Use "Very Little" energy so that the fluid_usage_per_tick is source of truth
     energy_usage = "1kW",
 
-    module_slots = 4,
-    distribution_effectivity = 1,
+    module_slots = 8,
+    distribution_effectivity = 2,
     distribution_effectivity_bonus_per_quality_level = 0.2,
-    -- "consumption" is energy consumption. yay
-    allowed_effects = {"productivity", "consumption", "pollution"},
+    allowed_effects = {"productivity", "pollution"},
     allowed_module_categories = {"pk-fracking-modules"},
     supply_area_distance = 9,
-    profile = {1, 0},
+    profile = beacon.profile,
     beacon_counter = "same_type",
   },
 }
