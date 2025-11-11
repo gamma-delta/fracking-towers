@@ -9,7 +9,9 @@ tech2.unit = {
   },
   count = 200
 }
-tech2.prerequisites = {"pk-fracking-module-1", "space-science-pack"}
+-- Using table.insert means we'll have slightly redundant tech links,
+-- but it's less fragile.
+table.insert(tech2.prerequisites, "space-science-pack")
 
 local tech3 = data.raw["technology"]["pk-fracking-module-3"]
 tech3.unit = {
@@ -24,9 +26,11 @@ tech3.unit = {
   },
   count = 2000,
 }
-tech3.prerequisites = {"pk-fracking-module-2", "metallurgic-science-pack", "agricultural-science-pack"}
+table.insert(tech3, "metallurgic-science-pack")
+table.insert(tech3, "agricultural-science-pack")
 
 local tech_tower = data.raw["technology"]["pk-fracking-tower"]
+table.insert(tech_tower.prerequisites, "space-science-pack")
 tech_tower.unit = {
   time = 30,
   ingredients = {
