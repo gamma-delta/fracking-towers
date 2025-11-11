@@ -54,7 +54,7 @@ data:extend{
     name = "pk-fracking-module-3",
     icon = "__pk-fracking-tower__/graphics/tech-module-3.png",
     icon_size = 256,
-    prerequisites = {"pk-fracking-module-2", "processing-unit", "production-science-pack"},
+    prerequisites = {"pk-fracking-module-2", "processing-unit", "production-science-pack", "electric-engine-unit"},
     unit = {
       time = 60,
       ingredients = {
