@@ -1,8 +1,6 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.3.0
-Date: 07. 11. 2025
-  Bugfixes:
-    - Fracking modules can no longer be placed in every single machine and are now properly restricted to mining drills and fracking towers. (Thanks starblaster64)
+Version: 0.4.0
+Date: 27. 11. 2025
   Balancing:
     - Buffed fracking module productivity, and reduced extra power requirement
     - Fracking towers now have logarithmic scaling, like vanilla beacons
@@ -10,6 +8,12 @@ Date: 07. 11. 2025
     - In Space Age, fracking modules 3 now require big mining drills and carbon fiber.
   Translation:
     - Add pt-BR. (Muito obrigada, odnols)
+
+---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 07. 11. 2025
+  Bugfixes:
+    - Fracking modules can no longer be placed in every single machine and are now properly restricted to mining drills and fracking towers. (Thanks starblaster64)
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
